@@ -131,7 +131,8 @@ int main(int argc, char *argv[])
 
     if ((strcmp("stdout", outf) != 0) && (out = fopen(outf, "wb")) == NULL) {
         perror("unhexdump couldn't open output");
-        fclose(in);
+        if (stdin != in)
+            fclose(in);
         exit(EXIT_FAILURE);
     }
 
