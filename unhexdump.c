@@ -71,19 +71,6 @@ int main(int argc, char *argv[])
     FILE *in = stdin, *out = stdout;
     char *inf = "stdin", *outf = "stdout";
 
-    if (1 == argc) {
-        switch (undump(stdin, stdout)) {
-        case 0:
-            return 0;
-        case -1:
-            fprintf(stderr, "Unexpected EOF on stdin\n");
-            exit(EXIT_FAILURE);
-        case -2:
-            fprintf(stderr, "Invalid character on stdin\n");
-            exit(EXIT_FAILURE);
-        }
-    }
-
     while ((c = getopt_long(argc, argv, "i:o:hv", long_options, &option_index)) != -1) {
         switch (c) {
             case 0:
