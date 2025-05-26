@@ -141,6 +141,8 @@ int main(int argc, char *argv[])
         break;
     }
 
+    fflush(out);
+
     if (stdin != in)
         fclose(in);
 
